@@ -288,16 +288,15 @@ public class LongLexTo {
       fr=new FileReader(inFile);
       br=new BufferedReader(fr);
       fw=new FileWriter(outFile);  
-	  // BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
 
       while((line=br.readLine())!=null) {
         line=line.trim();
         if(line.length()>0) {
    
-          // fw.write("<b>Text:</b> " + line);
-          // fw.write("<br>\n");
+          fw.write("<b>Text:</b> " + line);
+          fw.write("<br>\n");
     
-          // fw.write("<b>Word instance:</b> ");
+          fw.write("<b>Word instance:</b> ");
           tokenizer.wordInstance(line);
           typeList=tokenizer.getTypeList();
           begin=tokenizer.first();
@@ -305,40 +304,38 @@ public class LongLexTo {
           while(tokenizer.hasNext()) {
             end=tokenizer.next();
             type=((Integer)typeList.elementAt(i++)).intValue();
-            // if(type==0)
-              // fw.write("<font color=#ff0000>" + line.substring(begin, end) + "</font>");
-            // else if(type==1)
-              // fw.write("<font color=#00bb00>" + line.substring(begin, end) + "</font>");
-            // else if(type==2)
-              // fw.write("<font color=#0000bb>" + line.substring(begin, end) + "</font>");
-            // else if(type==3)
-              // fw.write("<font color=#aa00aa>" + line.substring(begin, end) + "</font>");
-            // else if(type==4)
-              // fw.write("<font color=#00aaaa>" + line.substring(begin, end) + "</font>");
-            // fw.write("<font color=#000000>|</font>");
-			fw.write(line.substring(begin, end) + "|");
+            if(type==0)
+              fw.write("<font color=#ff0000>" + line.substring(begin, end) + "</font>");
+            else if(type==1)
+              fw.write("<font color=#00bb00>" + line.substring(begin, end) + "</font>");
+            else if(type==2)
+              fw.write("<font color=#0000bb>" + line.substring(begin, end) + "</font>");
+            else if(type==3)
+              fw.write("<font color=#aa00aa>" + line.substring(begin, end) + "</font>");
+            else if(type==4)
+              fw.write("<font color=#00aaaa>" + line.substring(begin, end) + "</font>");
+            fw.write("<font color=#000000>|</font>");
             begin=end;
           }
-          // fw.write("<br>\n");
+          fw.write("<br>\n");
           
-          // fw.write("<b>Line instance:</b> ");
+          fw.write("<b>Line instance:</b> ");
           tokenizer.lineInstance(line);    
           begin=tokenizer.first();
           while(tokenizer.hasNext()) {
             end=tokenizer.next();
-            // fw.write(line.substring(begin, end) + "<font color=#ff0000>|</font>");
+            fw.write(line.substring(begin, end) + "<font color=#ff0000>|</font>");
             begin=end;
           }
-          // fw.write("<br><br>\n");        
-		  fw.write("\n");
+          fw.write("<br><br>\n");        
         }
       } //while all line
-      // fw.write("<hr>");
-      // fw.write("<font color=#ff0000>unknown</font> | ");
-      // fw.write("<font color=#00bb00>known</font> | ");
-      // fw.write("<font color=#0000bb>ambiguous</font> | ");
-      // fw.write("<font color=#a00aa>English/Digits</font> | ");
-      // fw.write("<font color=#00aaaa>special</font>\n");
+      fw.write("<hr>");
+      fw.write("<font color=#ff0000>unknown</font> | ");
+      fw.write("<font color=#00bb00>known</font> | ");
+      fw.write("<font color=#0000bb>ambiguous</font> | ");
+      fw.write("<font color=#a00aa>English/Digits</font> | ");
+      fw.write("<font color=#00aaaa>special</font>\n");
       fr.close();
       fw.close();
       System.out.println("\n *** Status: Use Web browser to view result: " + outFileName);
