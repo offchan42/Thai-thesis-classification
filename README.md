@@ -1,1 +1,1 @@
-# Thai-paper-classification
+# Thai-thesis-classification
