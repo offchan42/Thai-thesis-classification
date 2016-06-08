@@ -48,3 +48,6 @@ Temporary Items
 
 # Compiled Java bytecode
 *.class
+
+# IPython checkpoints
+.ipynb_checkpoints/
