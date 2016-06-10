@@ -54,3 +54,6 @@ Temporary Items
 
 # Thesis Corpus
 corpus/
+
+# Temporary text files
+tmp*.txt
