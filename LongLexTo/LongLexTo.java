@@ -270,10 +270,11 @@ public class LongLexTo {
     System.out.println("\n\n*******************************");
     System.out.println("*** LexTo: Lexeme Tokenizer ***");
     System.out.println("*******************************");
+	int round = 1;
     do {      
       //Get input file name
       do {
-      	System.out.print("\n >>> Enter input file ('q' to quit): ");
+      	System.out.printf("\n >>> Enter input file %d ('q' to quit): ", round);
         inFileName=(streamReader.readLine()).trim();
         if(inFileName.equals("q"))
           System.exit(1);
@@ -281,7 +282,7 @@ public class LongLexTo {
       } while(!inFile.exists());
       
       //Get output file name
-      System.out.print(" >>> Enter output file (.html only): ");
+      System.out.print(" >>> Enter output file: ");
       outFileName=(streamReader.readLine()).trim();
       outFile=new File(System.getProperty("user.dir") + "//" + outFileName);
       
@@ -341,7 +342,8 @@ public class LongLexTo {
       // fw.write("<font color=#00aaaa>special</font>\n");
       fr.close();
       fw.close();
-      System.out.println("\n *** Status: Use Web browser to view result: " + outFileName);
+      System.out.println("\n *** Status: Use text editor to view result: " + outFileName);
+	  round++;
     } while(true);
   } //main
 }
