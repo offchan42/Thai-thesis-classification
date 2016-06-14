@@ -152,8 +152,8 @@ public class LongLexTo {
         typeList.addElement(new Integer(3));
       }
       //Digits
-      else if(((ch>='0')&&(ch<='9'))||((ch>='๐')&&(ch<='๙'))) {
-        while((pos<text.length())&&(((ch>='0')&&(ch<='9'))||((ch>='๐')&&(ch<='๙'))||(ch==',')||(ch=='.')))
+      else if(((ch>='0')&&(ch<='9'))||((ch>='เน')&&(ch<='เน'))) {
+        while((pos<text.length())&&(((ch>='0')&&(ch<='9'))||((ch>='เน')&&(ch<='เน'))||(ch==',')||(ch=='.')))
           ch=text.charAt(pos++);
         if(pos<text.length())
           pos--;
@@ -161,7 +161,7 @@ public class LongLexTo {
         typeList.addElement(new Integer(3));
       }
       //Special characters
-      else if((ch<='~')||(ch=='ๆ')||(ch=='ฯ')||(ch=='“')||(ch=='”')||(ch==',')) {
+      else if((ch<='~')||(ch=='เน')||(ch=='เธฏ')||(ch=='โ€')||(ch=='โ€')||(ch==',')) {
         pos++;
         indexList.addElement(new Integer(pos));
         typeList.addElement(new Integer(4));

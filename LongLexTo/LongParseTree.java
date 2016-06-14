@@ -44,23 +44,23 @@ public class LongParseTree {
     endingChar=new Vector();
     
     //Adding front-dependent characters
-    frontDepChar.addElement("–"); frontDepChar.addElement("—"); frontDepChar.addElement("“"); 
-    frontDepChar.addElement("”"); frontDepChar.addElement("‘"); frontDepChar.addElement("’"); 
-    frontDepChar.addElement("÷"); frontDepChar.addElement("◊"); frontDepChar.addElement("ÿ"); 
-    frontDepChar.addElement("Ÿ"); frontDepChar.addElement("Â"); frontDepChar.addElement("Á"); 
-    frontDepChar.addElement("Ï"); frontDepChar.addElement("Ì");
+    frontDepChar.addElement("‡∏∞"); frontDepChar.addElement("‡∏±"); frontDepChar.addElement("‡∏≤"); 
+    frontDepChar.addElement("‡∏≥"); frontDepChar.addElement("‡∏¥"); frontDepChar.addElement("‡∏µ"); 
+    frontDepChar.addElement("‡∏∂"); frontDepChar.addElement("‡∏∑"); frontDepChar.addElement("‡∏∏"); 
+    frontDepChar.addElement("‡∏π"); frontDepChar.addElement("‡πÖ"); frontDepChar.addElement("‡πá"); 
+    frontDepChar.addElement("‡πå"); frontDepChar.addElement("‡πç");
 
     //Adding rear-dependent characters
-    rearDepChar.addElement("—"); rearDepChar.addElement("◊"); rearDepChar.addElement("‡"); 
-    rearDepChar.addElement("·"); rearDepChar.addElement("‚"); rearDepChar.addElement("„"); 
-    rearDepChar.addElement("‰"); rearDepChar.addElement("Ì");
+    rearDepChar.addElement("‡∏±"); rearDepChar.addElement("‡∏∑"); rearDepChar.addElement("‡πÄ"); 
+    rearDepChar.addElement("‡πÅ"); rearDepChar.addElement("‡πÇ"); rearDepChar.addElement("‡πÉ"); 
+    rearDepChar.addElement("‡πÑ"); rearDepChar.addElement("‡πç");
 
     //Adding tonal characters
-    tonalChar.addElement("Ë"); tonalChar.addElement("È"); tonalChar.addElement("Í"); 
-    tonalChar.addElement("Î"); 
+    tonalChar.addElement("‡πà"); tonalChar.addElement("‡πâ"); tonalChar.addElement("‡πä"); 
+    tonalChar.addElement("‡πã"); 
     
     //Adding ending characters
-    endingChar.addElement("Ê"); endingChar.addElement("œ");    
+    endingChar.addElement("‡πÜ"); endingChar.addElement("‡∏Ø");    
   }
   
   /****************************************************************/
