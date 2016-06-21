@@ -58,3 +58,4 @@ corpus/
 # Temporary text files
 tmp*.txt
 feature_names*.txt
+*.xlsx
