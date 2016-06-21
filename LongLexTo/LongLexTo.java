@@ -79,7 +79,7 @@ public class LongLexTo {
   public LongLexTo() throws IOException {
     
     dict=new Trie();
-    File dictFile=new File("lexitron.txt");
+    File dictFile=new File("lexitron2.txt");
     if(dictFile.exists())
       addDict(dictFile);
     else
