@@ -59,3 +59,5 @@ corpus/
 tmp*.txt
 feature_names*.txt
 *.xlsx
+coef.txt
+word_count_per_label.txt
