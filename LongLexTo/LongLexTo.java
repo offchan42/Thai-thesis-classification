@@ -251,7 +251,7 @@ public class LongLexTo {
   /****************************************************************/
   public static void main(String[] args) throws IOException {
      
-    LongLexTo tokenizer=new LongLexTo(new File("lexitron.txt"));
+    LongLexTo tokenizer=new LongLexTo(new File("lexitron2.txt"));
     File unknownFile=new File("unknown.txt");
     if(unknownFile.exists())
       tokenizer.addDict(unknownFile);
