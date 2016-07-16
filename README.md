@@ -7,3 +7,5 @@ All .ipynb files can be opened using IPython notebook (currently known as Jupyte
  1. change-file-encoding
  2. segment-words
  3. classify-docs
+ 4. segment-words-unlabeled
+ 5. predict-new-docs
