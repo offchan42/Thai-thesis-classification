@@ -167,6 +167,7 @@ dependencies:
 - pip:
   - backports-abc==0.4
   - backports.ssl-match-hostname==3.4.0.2
+  - chardet==2.3.0
   - et-xmlfile==1.0.1
   - ipython-genutils==0.1.0
   - joblib==0.9.4
