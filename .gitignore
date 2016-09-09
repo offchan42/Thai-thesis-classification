@@ -64,3 +64,6 @@ word_count_per_label.txt
 
 # Models Persistence
 models_persistence/
+
+# Python compiled binary file
+*.pyc
