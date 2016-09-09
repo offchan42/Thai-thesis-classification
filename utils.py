@@ -47,7 +47,7 @@ def score_top_preds(clf, X, Y, k=1, plot=True):
             plt.figure()
             plt.grid()
             plt.plot(x, y)
-            plt.xticks(np.arange(X.shape[1])+1)
+            plt.xticks(np.arange(clf.n_classes_)+1)
             plt.xlabel('Number of predictions needed to gain at least %d%% confident' % (100*k))
             plt.ylabel('Fractions of samples')
             plt.title('%s predicts with mean of %d%% confidence' % (type(clf).__name__, 100*confidence.mean()))
