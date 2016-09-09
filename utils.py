@@ -8,3 +8,48 @@ def pretty_trim(text):
 
 def simple_split(string):
     return string.split()
+
+"""
+**k** can be a float to represent minimum accumulate sum of the probability, or an int specifying constant number of predictions
+If **k** is an integer, it will be the constant number of predictions to make for each sample
+
+If **k** is a fraction, it will be the minimum confidence score.
+The model would automatically choose different number of predictions for each exmaple.
+
+For example, if a model is very confident that 'X' should be assigned to class 'Y' or 'Z' with the probability of 50% and 30% respectively then it would need only 2 predictions to do the job if you specify **k** to be <=  _0.80_.
+"""
+def score_top_preds(clf, X, Y, k=1, plot=True):
+    prob = clf.predict_proba(X)
+    top_probs = np.sort(prob)[:,::-1]
+    top_predictions = prob.argsort()[:,::-1]
+    top_probs_cumsum = top_probs.cumsum(axis=1)
+#     print 'Top Probabilities'
+#     print top_probs
+#     print 'Top Predictions'
+#     print top_predictions
+#     print 'Top Probabilities Cumulative Sum'
+#     print top_probs_cumsum
+    if isinstance(k, float):
+        needed_preds = (top_probs_cumsum >= k).argmax(axis=1) + 1
+        correct = np.empty_like(Y)
+        confidence = np.zeros_like(Y, np.float32)
+        for i in xrange(X.shape[0]):
+            predict = np.array(top_predictions[i,:needed_preds[i]])
+            correct[i] = (predict == Y[i]).any()
+            confidence[i] = top_probs_cumsum[i, needed_preds[i]]
+        if plot:
+            x, y = zip(*Counter(needed_preds).items())
+            y = np.array(y, np.float32) / X.shape[0]
+            plt.figure()
+            plt.grid()
+            plt.plot(x, y)
+            plt.xticks(np.arange(n_labels)+1)
+            plt.xlabel('Number of predictions needed to gain at least %d%% confident' % (100*k))
+            plt.ylabel('Fractions of samples')
+            plt.title('%s predicts with mean of %d%% confidence' % (type(clf).__name__, 100*confidence.mean()))
+            plt.show()
+            print 'Mean number of predictions:', needed_preds.mean()
+    else:
+        correct = top_predictions[:,:k] == Y[:,None]
+        correct = correct.any(axis=1)
+    return correct.mean()
