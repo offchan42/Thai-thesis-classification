@@ -1,3 +1,5 @@
+import numpy as np
+
 def pretty_trim(text):
     words = text.split(u'|')
     stripped_words_generator = (word.strip() for word in words)
