@@ -14,7 +14,7 @@ def simple_split(string):
     return string.split()
 
 """
-**k** can be a float to represent minimum accumulate sum of the probability, or an int specifying constant number of predictions
+**k** can be a float to represent minimum cumulative sum of the probability, or an int specifying constant number of predictions
 If **k** is an integer, it will be the constant number of predictions to make for each sample
 
 If **k** is a fraction, it will be the minimum confidence score.
