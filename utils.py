@@ -1,4 +1,6 @@
 import numpy as np
+from collections import Counter
+import matplotlib.pyplot as plt
 
 def pretty_trim(text):
     words = text.split(u'|')
@@ -16,7 +18,7 @@ def simple_split(string):
 If **k** is an integer, it will be the constant number of predictions to make for each sample
 
 If **k** is a fraction, it will be the minimum confidence score.
-The model would automatically choose different number of predictions for each exmaple.
+The model would automatically choose different number of predictions for each sample.
 
 For example, if a model is very confident that 'X' should be assigned to class 'Y' or 'Z' with the probability of 50% and 30% respectively then it would need only 2 predictions to do the job if you specify **k** to be <=  _0.80_.
 """
@@ -45,7 +47,7 @@ def score_top_preds(clf, X, Y, k=1, plot=True):
             plt.figure()
             plt.grid()
             plt.plot(x, y)
-            plt.xticks(np.arange(n_labels)+1)
+            plt.xticks(np.arange(X.shape[1])+1)
             plt.xlabel('Number of predictions needed to gain at least %d%% confident' % (100*k))
             plt.ylabel('Fractions of samples')
             plt.title('%s predicts with mean of %d%% confidence' % (type(clf).__name__, 100*confidence.mean()))
