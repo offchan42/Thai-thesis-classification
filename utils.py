@@ -57,3 +57,15 @@ def score_top_preds(clf, X, Y, k=1, plot=True):
         correct = top_predictions[:,:k] == Y[:,None]
         correct = correct.any(axis=1)
     return correct.mean()
+
+def get_cmap(N):
+    '''Returns a function that maps each index in 0, 1, ... N-1 to a distinct 
+    RGB color.'''
+    import matplotlib.cm as cmx
+    import matplotlib.colors as colors
+    color_norm  = colors.Normalize(vmin=0, vmax=N-1)
+    scalar_map = cmx.ScalarMappable(norm=color_norm, cmap='hsv') 
+    def map_index_to_rgb_color(index):
+        return scalar_map.to_rgba(index)
+    return map_index_to_rgb_color
+
