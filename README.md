@@ -9,3 +9,4 @@ All .ipynb files can be opened using IPython notebook (currently known as Jupyte
  3. classify-docs
  4. segment-words-unlabeled
  5. predict-new-docs
+ 6. predict-plagiarism-docs
